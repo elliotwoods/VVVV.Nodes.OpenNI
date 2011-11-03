@@ -1,0 +1,5 @@
+https://github.com/elliotwoods/VVVV.Nodes.OpenNI
+
+OpenNI wrapper for VVVV
+Prerequisites :
+VVVV.Nodes.KC.EmguCV (https://github.com/elliotwoods/VVVV.Nodes.EmguCV)
