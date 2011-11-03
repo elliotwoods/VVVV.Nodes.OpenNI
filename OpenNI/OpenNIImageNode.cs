@@ -9,18 +9,21 @@ using VVVV.PluginInterfaces.V2;
 using VVVV.Utils.VMath;
 using VVVV.Core.Logging;
 
-using Emgu.CV;
-using Emgu.CV.Structure;
-using Emgu.CV.CvEnum;
 using ThreadState = System.Threading.ThreadState;
 using System.Collections.Generic;
 
 using OpenNI;
 using System.Runtime.InteropServices;
 
+using Emgu.Util;
+using Emgu.CV;
+using Emgu.CV.Structure;
+
+using VVVV.Nodes.EmguCV;
+
 #endregion usings
 
-namespace VVVV.Nodes.EmguCV
+namespace VVVV.Nodes.OpenNI
 {
 	#region PluginInfo
 	[PluginInfo(Name = "Images", Category = "OpenNI", Help = "OpenNI Image generator", Tags = "")]

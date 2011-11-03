@@ -9,17 +9,18 @@ using VVVV.PluginInterfaces.V2;
 using VVVV.Utils.VMath;
 using VVVV.Core.Logging;
 
-using Emgu.CV;
-using Emgu.CV.Structure;
-using Emgu.CV.CvEnum;
 using ThreadState = System.Threading.ThreadState;
 using System.Collections.Generic;
 
 using OpenNI;
+using Emgu.CV;
+using Emgu.CV.Structure;
+
+using VVVV.Nodes.EmguCV;
 
 #endregion usings
 
-namespace VVVV.Nodes.EmguCV
+namespace VVVV.Nodes.OpenNI
 {
 
 	class OpenNIContext {
