@@ -1,0 +1,257 @@
+<!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta26.dtd" >
+   <PATCH nodename="C:\kimchiandchips\VVVV.Research\VVVV.Nodes.OpenNI\Samples\2. Mesh.v4p" filename="C:\kimchiandchips\VVVV.Research\VVVV.Nodes.OpenNI\Samples\0. Context.v4p" systemname="0. Context">
+   <BOUNDS height="13080" left="7200" top="1425" type="Window" width="8895">
+   </BOUNDS>
+   <NODE componentmode="InABox" id="3" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="100" left="5760" top="2355" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="5760" top="2355" type="Box" width="1740">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Status">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="4" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="100" left="5775" top="300" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="480" left="5775" top="300" type="Box" width="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Open">
+   </PIN>
+   </NODE>
+   <NODE componentmode="Hidden" filename="..\..\Prerequisites\VVVV.Nodes.OpenNI.dll" id="5" nodename="Context (OpenNI)" systemname="Context (OpenNI)">
+   <BOUNDS height="270" left="1470" top="1365" type="Node" width="4350">
+   </BOUNDS>
+   <PIN pinname="Filename">
+   </PIN>
+   <PIN pinname="Open" visible="1">
+   </PIN>
+   <PIN pinname="Status" visible="1">
+   </PIN>
+   <PIN pinname="Context" visible="1">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="6" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="0" left="1470" top="300" type="Node" width="0">
+   </BOUNDS>
+   <BOUNDS height="240" left="1470" top="300" type="Box" width="1860">
+   </BOUNDS>
+   <PIN encoded="0" pinname="Input String" slicecount="1" values="SamplesConfig.xml">
+   </PIN>
+   <PIN encoded="0" pinname="Default" slicecount="1" values="||">
+   </PIN>
+   <PIN encoded="0" pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
+   </PIN>
+   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="Filename">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Filename">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="5" dstpinname="Filename" srcnodeid="6" srcpinname="Output String">
+   </LINK>
+   <LINK dstnodeid="5" dstpinname="Open" srcnodeid="4" srcpinname="Y Output Value">
+   </LINK>
+   <LINK dstnodeid="3" dstpinname="Input String" srcnodeid="5" srcpinname="Status">
+   </LINK>
+   <NODE componentmode="Hidden" filename="..\..\Prerequisites\VVVV.Nodes.OpenNI.dll" id="7" nodename="Images (OpenNI)" systemname="Images (OpenNI)">
+   <BOUNDS height="270" left="1470" top="3360" type="Node" width="4365">
+   </BOUNDS>
+   <PIN pinname="Context" visible="1">
+   </PIN>
+   <PIN pinname="Status" visible="1">
+   </PIN>
+   <PIN pinname="RGB" visible="1">
+   </PIN>
+   <PIN pinname="Depth" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="7" dstpinname="Context" srcnodeid="5" srcpinname="Context">
+   </LINK>
+   <NODE componentmode="InABox" id="8" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="100" left="5760" top="4305" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="240" left="5760" top="4305" type="Box" width="1740">
+   </BOUNDS>
+   <PIN pinname="Input String" visible="1">
+   </PIN>
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Status">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="8" dstpinname="Input String" srcnodeid="7" srcpinname="Status">
+   </LINK>
+   <NODE componentmode="Hidden" filename="..\..\Prerequisites\VVVV.Nodes.EmguCV.dll" id="9" nodename="AsTexture (EmguCV RGB)" systemname="AsTexture (EmguCV RGB)">
+   <BOUNDS height="100" left="1455" top="4020" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Image" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="9" dstpinname="Image" srcnodeid="7" srcpinname="RGB">
+   </LINK>
+   <NODE componentmode="Hidden" filename="..\..\Prerequisites\VVVV.Nodes.EmguCV.dll" id="10" nodename="AsTexture (EmguCV L16)" systemname="AsTexture (EmguCV L16)">
+   <BOUNDS height="100" left="2910" top="4020" type="Node" width="100">
+   </BOUNDS>
+   <PIN pinname="Image" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   </NODE>
+   <LINK dstnodeid="10" dstpinname="Image" srcnodeid="7" srcpinname="Depth">
+   </LINK>
+   <NODE componentmode="InABox" id="16" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
+   <BOUNDS height="100" left="345" top="6555" type="Node" width="100">
+   </BOUNDS>
+   <BOUNDS height="5910" left="345" top="6555" type="Box" width="8100">
+   </BOUNDS>
+   <BOUNDS height="5010" left="8835" top="12300" type="Window" width="6240">
+   </BOUNDS>
+   <PIN pinname="Layers" visible="1">
+   </PIN>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Windowed Antialiasing Quality Level" slicecount="1" values="3">
+   </PIN>
+   <PIN pinname="Windowed Depthbuffer Format" slicecount="1" values="D24X8">
+   </PIN>
+   </NODE>
+   <NODE componentmode="InABox" id="18" nodename="IOBox (String)" systemname="IOBox (String)">
+   <BOUNDS height="270" left="6015" top="3330" type="Node" width="4005">
+   </BOUNDS>
+   <BOUNDS height="510" left="6015" top="3330" type="Box" width="2190">
+   </BOUNDS>
+   <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|//Status pin on Images node is likely to be depreciated|">
+   </PIN>
+   <PIN pinname="Output String" visible="0">
+   </PIN>
+   <PIN pinname="Show Grid" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="String Type" slicecount="1" values="MultiLine">
+   </PIN>
+   </NODE>
+   <NODE systemname="KinectPreview (EX9.Effect)" filename="Shaders\KinectPreview.fx" nodename="KinectPreview (EX9.Effect)" componentmode="Hidden" id="21">
+   <BOUNDS type="Node" left="645" top="5610" width="4695" height="270">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="XYZ" visible="1">
+   </PIN>
+   <PIN pinname="RGB" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Grid (EX9.Geometry)" nodename="Grid (EX9.Geometry)" componentmode="Hidden" id="22">
+   <BOUNDS type="Node" left="1080" top="5115" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Mesh" visible="1">
+   </PIN>
+   <PIN pinname="Resolution Y" slicecount="1" values="480">
+   </PIN>
+   <PIN pinname="Resolution X" slicecount="1" values="640">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="22" srcpinname="Mesh" dstnodeid="21" dstpinname="Mesh">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Texture Out" dstnodeid="21" dstpinname="RGB" linkstyle="Bezier">
+   <LINKPOINT x="1515" y="4950">
+   </LINKPOINT>
+   <LINKPOINT x="2325" y="4950">
+   </LINKPOINT>
+   </LINK>
+   <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\modules\vvvv group\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="23">
+   <BOUNDS type="Node" left="6585" top="6015" width="960" height="270">
+   </BOUNDS>
+   <PIN pinname="View" visible="1">
+   </PIN>
+   <PIN pinname="Projection" visible="1">
+   </PIN>
+   <PIN pinname="Initial Yaw" visible="-1" pintype="Input" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Initial Pitch" visible="-1" pintype="Input" slicecount="1" values="0.05">
+   </PIN>
+   <PIN pinname="Initial FOV" visible="-1" pintype="Input" slicecount="1" values="0.2">
+   </PIN>
+   <PIN pinname="Distortion" visible="-1" pintype="Input" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Far Plane" visible="-1" pintype="Input" slicecount="1" values="100">
+   </PIN>
+   <PIN pinname="Near Plane" visible="-1" pintype="Input" slicecount="1" values="0.10001">
+   </PIN>
+   <PIN pinname="View Projection" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Inverse View" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Inverse Interest" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Inverse Rotation" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Position" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Interest" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="FOV" visible="-1" pintype="Output">
+   </PIN>
+   <PIN pinname="Distance" visible="-1" pintype="Output">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="View" dstnodeid="16" dstpinname="View">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Projection" dstnodeid="16" dstpinname="Projection">
+   </LINK>
+   <NODE systemname="AxisAndGrid (DX9)" filename="%VVVV%\modules\vvvv group\EX9\AxisAndGrid (DX9).v4p" nodename="AxisAndGrid (DX9)" componentmode="Hidden" id="24">
+   <BOUNDS type="Node" left="345" top="4755" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="Group (EX9)" nodename="Group (EX9)" componentmode="Hidden" id="25">
+   <BOUNDS type="Node" left="360" top="6165" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Layer 1" visible="1">
+   </PIN>
+   <PIN pinname="Layer" visible="1">
+   </PIN>
+   <PIN pinname="Layer 2" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="25" srcpinname="Layer" dstnodeid="16" dstpinname="Layers">
+   </LINK>
+   <NODE systemname="WorldAndNormals (OpenNI)" filename="Modules\WorldAndNormals (OpenNI).v4p" nodename="WorldAndNormals (OpenNI)" componentmode="Hidden" id="26">
+   <BOUNDS type="Node" left="2895" top="4605" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Depth Texture" visible="1">
+   </PIN>
+   <PIN pinname="World Texture" visible="1">
+   </PIN>
+   <BOUNDS type="Window" left="11235" top="1440" width="6720" height="11790">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="10" srcpinname="Texture Out" dstnodeid="26" dstpinname="Depth Texture">
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="World Texture" dstnodeid="21" dstpinname="XYZ" linkstyle="Bezier">
+   <LINKPOINT x="2895" y="5228">
+   </LINKPOINT>
+   <LINKPOINT x="1965" y="5228">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Layer" dstnodeid="25" dstpinname="Layer 1">
+   </LINK>
+   <LINK srcnodeid="21" srcpinname="Layer" dstnodeid="25" dstpinname="Layer 2">
+   </LINK>
+   </PATCH>
