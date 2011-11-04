@@ -3,9 +3,9 @@
    <BOUNDS height="13080" left="7200" top="1425" type="Window" width="8895">
    </BOUNDS>
    <NODE componentmode="InABox" id="3" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="100" left="5760" top="2355" type="Node" width="100">
+   <BOUNDS height="100" left="5760" top="1905" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="5760" top="2355" type="Box" width="1740">
+   <BOUNDS height="240" left="5760" top="1905" type="Box" width="1740">
    </BOUNDS>
    <PIN pinname="Input String" visible="1">
    </PIN>
@@ -67,7 +67,7 @@
    <LINK dstnodeid="3" dstpinname="Input String" srcnodeid="5" srcpinname="Status">
    </LINK>
    <NODE componentmode="Hidden" filename="..\..\Prerequisites\VVVV.Nodes.OpenNI.dll" id="7" nodename="Images (OpenNI)" systemname="Images (OpenNI)">
-   <BOUNDS height="270" left="1470" top="3360" type="Node" width="4365">
+   <BOUNDS height="270" left="1470" top="2610" type="Node" width="4365">
    </BOUNDS>
    <PIN pinname="Context" visible="1">
    </PIN>
@@ -81,9 +81,9 @@
    <LINK dstnodeid="7" dstpinname="Context" srcnodeid="5" srcpinname="Context">
    </LINK>
    <NODE componentmode="InABox" id="8" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="100" left="5760" top="4305" type="Node" width="100">
+   <BOUNDS height="100" left="5760" top="3255" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="240" left="5760" top="4305" type="Box" width="1740">
+   <BOUNDS height="240" left="5760" top="3255" type="Box" width="1740">
    </BOUNDS>
    <PIN pinname="Input String" visible="1">
    </PIN>
@@ -93,22 +93,26 @@
    <LINK dstnodeid="8" dstpinname="Input String" srcnodeid="7" srcpinname="Status">
    </LINK>
    <NODE componentmode="Hidden" filename="..\..\Prerequisites\VVVV.Nodes.EmguCV.dll" id="9" nodename="AsTexture (EmguCV RGB)" systemname="AsTexture (EmguCV RGB)">
-   <BOUNDS height="100" left="1455" top="4020" type="Node" width="100">
+   <BOUNDS height="100" left="1455" top="3255" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Image" visible="1">
    </PIN>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
+   <BOUNDS type="Box" left="1455" top="3255">
+   </BOUNDS>
    </NODE>
    <LINK dstnodeid="9" dstpinname="Image" srcnodeid="7" srcpinname="RGB">
    </LINK>
    <NODE componentmode="Hidden" filename="..\..\Prerequisites\VVVV.Nodes.EmguCV.dll" id="10" nodename="AsTexture (EmguCV L16)" systemname="AsTexture (EmguCV L16)">
-   <BOUNDS height="100" left="2910" top="4020" type="Node" width="100">
+   <BOUNDS height="100" left="2910" top="3255" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Image" visible="1">
    </PIN>
    <PIN pinname="Texture Out" visible="1">
    </PIN>
+   <BOUNDS type="Box" left="2910" top="3255">
+   </BOUNDS>
    </NODE>
    <LINK dstnodeid="10" dstpinname="Image" srcnodeid="7" srcpinname="Depth">
    </LINK>
@@ -131,9 +135,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="18" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="270" left="6015" top="3330" type="Node" width="4005">
+   <BOUNDS height="270" left="6015" top="2580" type="Node" width="4005">
    </BOUNDS>
-   <BOUNDS height="510" left="6015" top="3330" type="Box" width="2190">
+   <BOUNDS height="510" left="6015" top="2580" type="Box" width="2190">
    </BOUNDS>
    <PIN encoded="0" pinname="Input String" slicecount="1" visible="0" values="|//Status pin on Images node is likely to be depreciated|">
    </PIN>
@@ -168,12 +172,6 @@
    </NODE>
    <LINK srcnodeid="22" srcpinname="Mesh" dstnodeid="21" dstpinname="Mesh">
    </LINK>
-   <LINK srcnodeid="9" srcpinname="Texture Out" dstnodeid="21" dstpinname="RGB" linkstyle="Bezier">
-   <LINKPOINT x="1515" y="4950">
-   </LINKPOINT>
-   <LINKPOINT x="2325" y="4950">
-   </LINKPOINT>
-   </LINK>
    <NODE systemname="Camera (Transform Softimage)" filename="%VVVV%\modules\vvvv group\Transform\Camera (Transform Softimage).v4p" nodename="Camera (Transform Softimage)" componentmode="Hidden" id="23">
    <BOUNDS type="Node" left="6585" top="6015" width="960" height="270">
    </BOUNDS>
@@ -181,7 +179,7 @@
    </PIN>
    <PIN pinname="Projection" visible="1">
    </PIN>
-   <PIN pinname="Initial Yaw" visible="-1" pintype="Input" slicecount="1" values="0">
+   <PIN pinname="Initial Yaw" visible="-1" pintype="Input" slicecount="1" values="-0.06">
    </PIN>
    <PIN pinname="Initial Pitch" visible="-1" pintype="Input" slicecount="1" values="0.05">
    </PIN>
@@ -209,6 +207,8 @@
    </PIN>
    <PIN pinname="Distance" visible="-1" pintype="Output">
    </PIN>
+   <PIN pinname="Inital Distance" slicecount="1" values="3">
+   </PIN>
    </NODE>
    <LINK srcnodeid="23" srcpinname="View" dstnodeid="16" dstpinname="View">
    </LINK>
@@ -233,7 +233,7 @@
    <LINK srcnodeid="25" srcpinname="Layer" dstnodeid="16" dstpinname="Layers">
    </LINK>
    <NODE systemname="WorldAndNormals (OpenNI)" filename="Modules\WorldAndNormals (OpenNI).v4p" nodename="WorldAndNormals (OpenNI)" componentmode="Hidden" id="26">
-   <BOUNDS type="Node" left="2895" top="4605" width="100" height="100">
+   <BOUNDS type="Node" left="3810" top="4005" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Depth Texture" visible="1">
    </PIN>
@@ -241,17 +241,65 @@
    </PIN>
    <BOUNDS type="Window" left="11235" top="1440" width="6720" height="11790">
    </BOUNDS>
+   <PIN pinname="Normals Texture" visible="1">
+   </PIN>
    </NODE>
-   <LINK srcnodeid="10" srcpinname="Texture Out" dstnodeid="26" dstpinname="Depth Texture">
+   <LINK srcnodeid="10" srcpinname="Texture Out" dstnodeid="26" dstpinname="Depth Texture" linkstyle="Bezier">
+   <LINKPOINT x="2975" y="3750">
+   </LINKPOINT>
+   <LINKPOINT x="3805" y="3750">
+   </LINKPOINT>
    </LINK>
    <LINK srcnodeid="26" srcpinname="World Texture" dstnodeid="21" dstpinname="XYZ" linkstyle="Bezier">
-   <LINKPOINT x="2895" y="5228">
+   <LINKPOINT x="3505" y="4828">
    </LINKPOINT>
-   <LINKPOINT x="1965" y="5228">
+   <LINKPOINT x="2270" y="5028">
    </LINKPOINT>
    </LINK>
    <LINK srcnodeid="24" srcpinname="Layer" dstnodeid="25" dstpinname="Layer 1">
    </LINK>
    <LINK srcnodeid="21" srcpinname="Layer" dstnodeid="25" dstpinname="Layer 2">
+   </LINK>
+   <NODE systemname="Switch (Node Input)" nodename="Switch (Node Input)" componentmode="Hidden" id="28">
+   <BOUNDS type="Node" left="2340" top="5055" width="3060" height="270">
+   </BOUNDS>
+   <PIN pinname="Switch" visible="1">
+   </PIN>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" visible="1">
+   </PIN>
+   <PIN pinname="Output" visible="1">
+   </PIN>
+   </NODE>
+   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="29">
+   <BOUNDS type="Node" left="2340" top="4095" width="100" height="100">
+   </BOUNDS>
+   <BOUNDS type="Box" left="2340" top="4095" width="480" height="480">
+   </BOUNDS>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Toggle">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="|Show normals|" encoded="0">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="29" srcpinname="Y Output Value" dstnodeid="28" dstpinname="Switch">
+   </LINK>
+   <LINK srcnodeid="9" srcpinname="Texture Out" dstnodeid="28" dstpinname="Input 1" linkstyle="Bezier">
+   <LINKPOINT x="1515" y="4225">
+   </LINKPOINT>
+   <LINKPOINT x="3375" y="4325">
+   </LINKPOINT>
+   </LINK>
+   <LINK srcnodeid="26" srcpinname="Normals Texture" dstnodeid="28" dstpinname="Input 2">
+   </LINK>
+   <LINK srcnodeid="28" srcpinname="Output" dstnodeid="21" dstpinname="RGB">
    </LINK>
    </PATCH>
