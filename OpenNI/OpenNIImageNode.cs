@@ -38,17 +38,20 @@ namespace VVVV.Nodes.OpenNI
 		ISpread<OpenNIContext> FPinInContext;
 
 		[Output("RGB")]
-		ISpread<ImageRGB> FPinOutRGB;
+		ISpread<CVImageLink> FPinOutImageRGB;
 
 		[Output("Depth")]
-		ISpread<ImageL16> FPinOutDepth;
+		ISpread<CVImageLink> FPinOutImageDepth;
 
 		[Output("World")]
-		ISpread<ImageRGB32F> FPinOutWorld;
-
+		ISpread<CVImageLink> FPinOutImageWorld;
 
 		[Output("Status")]
 		ISpread<String> FPinOutStatus;
+
+		CVImageOutput FImageRGB = new CVImageOutput();
+		CVImageOutput FImageDepth = new CVImageOutput();
+		CVImageOutput FImageWorld = new CVImageOutput();
 
 		[Import]
 		ILogger FLogger;
@@ -59,15 +62,6 @@ namespace VVVV.Nodes.OpenNI
 
 		ImageGenerator FImageGenerator;
 		DepthGenerator FDepthGenerator;
-
-		ImageRGB FImageRGB;
-		ImageL16 FImageDepth;
-		ImageRGB32F FImageWorld;
-
-		Image<Bgr, byte> FImageRGBBuffer;
-		Image<Gray, ushort> FImageDepthBuffer;
-		Image<Rgb, float> FImageWorldBuffer;
-
 
 		Thread FThread;
 		#endregion fields & pins
@@ -105,18 +99,15 @@ namespace VVVV.Nodes.OpenNI
 					FDepthGenerator = FContext.context.FindExistingNode(global::OpenNI.NodeType.Depth) as DepthGenerator;
 					FDepthGenerator.AlternativeViewpointCapability.SetViewpoint(FImageGenerator);
 
-					FImageRGB = new ImageRGB();
-					FImageDepth = new ImageL16();
-					FImageWorld = new ImageRGB32F();
-
 					Size size = new Size(640, 480);
-					FImageRGBBuffer = new Image<Bgr, byte>(size);
-					FImageDepthBuffer = new Image<Gray,ushort>(size);
-					FImageWorldBuffer = new Image<Rgb, float>(size);
 
-					FPinOutRGB[0] = FImageRGB;
-					FPinOutDepth[0] = FImageDepth;
-					FPinOutWorld[0] = FImageWorld;
+					FImageRGB.Image.Initialise(size, TColourFormat.RGB8);
+					FImageDepth.Image.Initialise(size, TColourFormat.L16);
+					FImageWorld.Image.Initialise(size, TColourFormat.RGB32F);
+
+					FPinOutImageRGB[0] = FImageRGB.Link;
+					FPinOutImageDepth[0] = FImageDepth.Link;
+					FPinOutImageWorld[0] = FImageWorld.Link;
 
 					FThread = new Thread(fnThread);
 					FRunning = true;
@@ -140,7 +131,7 @@ namespace VVVV.Nodes.OpenNI
 				this.FContext.context.WaitOneUpdateAll(this.FDepthGenerator);
 
 				byte* rgbs = (byte*)FImageGenerator.ImageMapPtr.ToPointer();
-				byte* rgbd = (byte*)FImageRGBBuffer.MIplImage.imageData.ToPointer();
+				byte* rgbd = (byte*)FImageRGB.Image.Data.ToPointer();
 
 				for (int i=0; i<640*480; i++) {
 					rgbd[2] = rgbs[0];
@@ -149,20 +140,21 @@ namespace VVVV.Nodes.OpenNI
 					rgbs += 3;
 					rgbd += 3;
 				}
-				//CopyMemory(FImageRGBBuffer.MIplImage.imageData, FImageGenerator.ImageMapPtr, 640 * 480 * 3);
-				CopyMemory(FImageDepthBuffer.MIplImage.imageData, FDepthGenerator.DepthMapPtr, 640 * 480 * 2);
+
+				CopyMemory(FImageDepth.Image.Data, FDepthGenerator.DepthMapPtr, 640 * 480 * 2);
 
 				fillWorld();
-				FImageRGB.SetImage(FImageRGBBuffer);
-				FImageDepth.SetImage(FImageDepthBuffer);
-				FImageWorld.SetImage(FImageWorldBuffer);
+
+				FImageRGB.Send();
+				FImageDepth.Send();
+				FImageWorld.Send();
 			}
 		}
 
 		private unsafe void fillWorld()
 		{
-			float* DataXYZ = (float*)FImageWorldBuffer.MIplImage.imageData;
-			ushort* DataDepth = (ushort*)FImageDepthBuffer.MIplImage.imageData;
+			float* DataXYZ = (float*)FImageWorld.Data.ToPointer();
+			ushort* DataDepth = (ushort*)FImageDepth.Data.ToPointer();
 
 			//calculate world positions and move pointer
 			for (int iY = 0; iY < 480; iY++)
