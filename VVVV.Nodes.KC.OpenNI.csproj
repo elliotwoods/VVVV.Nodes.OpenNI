@@ -36,7 +36,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\Prerequisites\Plugins\</OutputPath>
+    <OutputPath>Build\Plugins\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -85,6 +85,9 @@
     <Reference Include="VVVV.Core">
       <HintPath>..\..\..\vvvv\vvvv_45beta26\bin\managed\VVVV.Core.dll</HintPath>
     </Reference>
+    <Reference Include="VVVV.Nodes.EmguCV">
+      <HintPath>..\VVVV.Nodes.EmguCV\Build\Plugins\VVVV.Nodes.EmguCV.dll</HintPath>
+    </Reference>
     <Reference Include="VVVV.PluginInterfaces">
       <HintPath>..\..\..\vvvv\vvvv_45beta26\bin\managed\VVVV.PluginInterfaces.dll</HintPath>
     </Reference>
@@ -96,8 +99,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OpenNI\OpenNIContextNode.cs" />
-    <Compile Include="OpenNI\OpenNIImageNode.cs" />
+    <Compile Include="OpenNI\ContextNode.cs" />
+    <Compile Include="OpenNI\ImageNode.cs" />
+    <Compile Include="OpenNI\UserNode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -122,12 +126,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="readme" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VVVV.Nodes.EmguCV\VVVV.Nodes.KC.EmguCV.csproj">
-      <Project>{E9A7FC26-34E0-4C1E-83D8-C01A169422B2}</Project>
-      <Name>VVVV.Nodes.KC.EmguCV</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
