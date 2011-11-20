@@ -13,9 +13,9 @@
    </PIN>
    </NODE>
    <NODE componentmode="InABox" id="4" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
-   <BOUNDS height="100" left="6495" top="300" type="Node" width="100">
+   <BOUNDS height="100" left="2205" top="495" type="Node" width="100">
    </BOUNDS>
-   <BOUNDS height="480" left="6495" top="300" type="Box" width="480">
+   <BOUNDS height="480" left="2205" top="495" type="Box" width="480">
    </BOUNDS>
    <PIN pinname="Value Type" slicecount="1" values="Boolean">
    </PIN>
@@ -42,26 +42,6 @@
    <PIN pinname="Context" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="InABox" id="6" nodename="IOBox (String)" systemname="IOBox (String)">
-   <BOUNDS height="0" left="2190" top="300" type="Node" width="0">
-   </BOUNDS>
-   <BOUNDS height="240" left="2190" top="300" type="Box" width="1860">
-   </BOUNDS>
-   <PIN encoded="0" pinname="Input String" slicecount="1" values="SamplesConfig.xml">
-   </PIN>
-   <PIN encoded="0" pinname="Default" slicecount="1" values="||">
-   </PIN>
-   <PIN encoded="0" pinname="File Mask" slicecount="1" values="|All Files (*.*)||*.*|">
-   </PIN>
-   <PIN pinname="Maximum Characters" slicecount="1" values="-1">
-   </PIN>
-   <PIN pinname="String Type" slicecount="1" values="Filename">
-   </PIN>
-   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Filename">
-   </PIN>
-   </NODE>
-   <LINK dstnodeid="5" dstpinname="Filename" srcnodeid="6" srcpinname="Output String">
-   </LINK>
    <LINK dstnodeid="5" dstpinname="Open" srcnodeid="4" srcpinname="Y Output Value">
    </LINK>
    <LINK dstnodeid="3" dstpinname="Input String" srcnodeid="5" srcpinname="Status">
@@ -76,6 +56,8 @@
    <PIN pinname="RGB" visible="1">
    </PIN>
    <PIN pinname="Depth" visible="1">
+   </PIN>
+   <PIN pinname="Image" visible="1">
    </PIN>
    </NODE>
    <LINK dstnodeid="7" dstpinname="Context" srcnodeid="5" srcpinname="Context">
@@ -158,31 +140,7 @@
    <PIN pinname="String Type" slicecount="1" values="MultiLine">
    </PIN>
    </NODE>
-   <NODE systemname="AsTexture (EmguCV)" filename="..\..\Prerequisites\plugins\VVVV.Nodes.EmguCV.dll" nodename="AsTexture (EmguCV)" componentmode="Hidden" id="19">
-   <BOUNDS type="Node" left="2175" top="4185" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Image" visible="1">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="7" srcpinname="RGB" dstnodeid="19" dstpinname="Image">
-   </LINK>
-   <LINK srcnodeid="19" srcpinname="Texture Out" dstnodeid="11" dstpinname="Texture In 1">
-   </LINK>
-   <NODE systemname="AsTexture (EmguCV)" filename="..\..\Prerequisites\plugins\VVVV.Nodes.EmguCV.dll" nodename="AsTexture (EmguCV)" componentmode="Hidden" id="20">
-   <BOUNDS type="Node" left="3645" top="4185" width="100" height="100">
-   </BOUNDS>
-   <PIN pinname="Image" visible="1">
-   </PIN>
-   <PIN pinname="Texture Out" visible="1">
-   </PIN>
-   </NODE>
-   <LINK srcnodeid="7" srcpinname="Depth" dstnodeid="20" dstpinname="Image">
-   </LINK>
-   <LINK srcnodeid="20" srcpinname="Texture Out" dstnodeid="11" dstpinname="Texture In 2">
-   </LINK>
-   <NODE componentmode="Hidden" id="12" nodename="Constant (EX9.Effect)" systemname="Constant (EX9.Effect)" filename="%VVVV%\effects\Constant.fx">
+   <NODE componentmode="Hidden" filename="%VVVV%\effects\Constant.fx" id="12" nodename="Constant (EX9.Effect)" systemname="Constant (EX9.Effect)">
    <BOUNDS height="270" left="660" top="7665" type="Node" width="2760">
    </BOUNDS>
    <PIN pinname="Texture" visible="1">
@@ -202,16 +160,44 @@
    </LINK>
    <LINK dstnodeid="16" dstpinname="Layers" srcnodeid="12" srcpinname="Layer">
    </LINK>
-   <NODE systemname="Grid (EX9.Geometry)" nodename="Grid (EX9.Geometry)" componentmode="Hidden" id="21">
-   <BOUNDS type="Node" left="720" top="7110" width="100" height="100">
+   <NODE componentmode="Hidden" id="21" nodename="Grid (EX9.Geometry)" systemname="Grid (EX9.Geometry)">
+   <BOUNDS height="100" left="720" top="7110" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Mesh" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="21" srcpinname="Mesh" dstnodeid="12" dstpinname="Mesh" linkstyle="VHV">
+   <LINK dstnodeid="12" dstpinname="Mesh" linkstyle="VHV" srcnodeid="21" srcpinname="Mesh">
    <LINKPOINT x="780" y="7515">
    </LINKPOINT>
    <LINKPOINT x="960" y="7515">
    </LINKPOINT>
+   </LINK>
+   <NODE systemname="AsTexture (EmguCV)" filename="..\..\VVVV.Nodes.EmguCV\Build\plugins\VVVV.Nodes.EmguCV.dll" nodename="AsTexture (EmguCV)" componentmode="Hidden" id="22">
+   <BOUNDS type="Node" left="2175" top="4305" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Image" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="2175" top="4305">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="7" srcpinname="Image" dstnodeid="22" dstpinname="Image">
+   </LINK>
+   <LINK srcnodeid="22" srcpinname="Texture Out" dstnodeid="11" dstpinname="Texture In 1">
+   </LINK>
+   <NODE systemname="AsTexture (EmguCV)" filename="..\..\VVVV.Nodes.EmguCV\Build\plugins\VVVV.Nodes.EmguCV.dll" nodename="AsTexture (EmguCV)" componentmode="Hidden" id="23">
+   <BOUNDS type="Node" left="3630" top="4305" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Image" visible="1">
+   </PIN>
+   <PIN pinname="Texture Out" visible="1">
+   </PIN>
+   <BOUNDS type="Box" left="3630" top="4305">
+   </BOUNDS>
+   </NODE>
+   <LINK srcnodeid="23" srcpinname="Texture Out" dstnodeid="11" dstpinname="Texture In 2">
+   </LINK>
+   <LINK srcnodeid="7" srcpinname="Depth" dstnodeid="23" dstpinname="Image">
    </LINK>
    </PATCH>
