@@ -46,7 +46,7 @@
    </LINK>
    <LINK dstnodeid="3" dstpinname="Input String" srcnodeid="5" srcpinname="Status">
    </LINK>
-   <NODE componentmode="Hidden" filename="..\..\Prerequisites\VVVV.Nodes.OpenNI.dll" id="7" nodename="Images (OpenNI)" systemname="Images (OpenNI)" hiddenwhenlocked="1">
+   <NODE componentmode="Hidden" filename="..\..\Prerequisites\VVVV.Nodes.OpenNI.dll" hiddenwhenlocked="1" id="7" nodename="Images (OpenNI)" systemname="Images (OpenNI)">
    <BOUNDS height="270" left="1890" top="2100" type="Node" width="705">
    </BOUNDS>
    <PIN pinname="Context" visible="1">
@@ -64,7 +64,7 @@
    </NODE>
    <LINK dstnodeid="7" dstpinname="Context" srcnodeid="5" srcpinname="Context">
    </LINK>
-   <NODE componentmode="InABox" id="8" nodename="IOBox (String)" systemname="IOBox (String)" hiddenwhenlocked="1">
+   <NODE componentmode="InABox" hiddenwhenlocked="1" id="8" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="100" left="2550" top="2565" type="Node" width="100">
    </BOUNDS>
    <BOUNDS height="240" left="2550" top="2565" type="Box" width="900">
@@ -74,7 +74,7 @@
    <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="Status">
    </PIN>
    </NODE>
-   <LINK dstnodeid="8" dstpinname="Input String" srcnodeid="7" srcpinname="Status" hiddenwhenlocked="1">
+   <LINK dstnodeid="8" dstpinname="Input String" hiddenwhenlocked="1" srcnodeid="7" srcpinname="Status">
    </LINK>
    <NODE componentmode="InABox" id="16" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
    <BOUNDS height="100" left="345" top="6555" type="Node" width="100">
@@ -133,14 +133,14 @@
    </PIN>
    <PIN pinname="Initial Interest" slicecount="3" values="0.34,0.34,0.34">
    </PIN>
-   <BOUNDS type="Box" left="6585" top="6015">
+   <BOUNDS left="6585" top="6015" type="Box">
    </BOUNDS>
    </NODE>
    <LINK dstnodeid="16" dstpinname="View" srcnodeid="23" srcpinname="View">
    </LINK>
    <LINK dstnodeid="16" dstpinname="Projection" srcnodeid="23" srcpinname="Projection">
    </LINK>
-   <NODE componentmode="Hidden" filename="%VVVV%\modules\vvvv group\EX9\AxisAndGrid (DX9).v4p" id="24" nodename="AxisAndGrid (DX9)" systemname="AxisAndGrid (DX9)" hiddenwhenlocked="1">
+   <NODE componentmode="Hidden" filename="%VVVV%\modules\vvvv group\EX9\AxisAndGrid (DX9).v4p" hiddenwhenlocked="1" id="24" nodename="AxisAndGrid (DX9)" systemname="AxisAndGrid (DX9)">
    <BOUNDS height="100" left="345" top="2805" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
@@ -162,7 +162,7 @@
    </NODE>
    <LINK dstnodeid="16" dstpinname="Layers" srcnodeid="25" srcpinname="Layer">
    </LINK>
-   <LINK dstnodeid="25" dstpinname="Layer 1" srcnodeid="24" srcpinname="Layer" hiddenwhenlocked="1">
+   <LINK dstnodeid="25" dstpinname="Layer 1" hiddenwhenlocked="1" srcnodeid="24" srcpinname="Layer">
    </LINK>
    <NODE componentmode="InABox" id="38" nodename="IOBox (String)" systemname="IOBox (String)">
    <BOUNDS height="0" left="9885" top="2880" type="Node" width="0">
@@ -187,7 +187,7 @@
    </PIN>
    <PIN pinname="Layer" visible="1">
    </PIN>
-   <BOUNDS type="Box" left="8805" top="6015">
+   <BOUNDS left="8805" top="6015" type="Box">
    </BOUNDS>
    </NODE>
    <NODE componentmode="InABox" id="40" nodename="Renderer (EX9)" systemname="Renderer (EX9)">
@@ -298,7 +298,7 @@
    </LINK>
    <LINK dstnodeid="38" dstpinname="Input String" srcnodeid="45" srcpinname="Status">
    </LINK>
-   <LINK dstnodeid="42" dstpinname="Input" srcnodeid="45" srcpinname="ID" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINK dstnodeid="42" dstpinname="Input" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="45" srcpinname="ID">
    <LINKPOINT x="5430" y="3090">
    </LINKPOINT>
    <LINKPOINT x="9945" y="3090">
@@ -328,7 +328,7 @@
    <LINKPOINT x="5755" y="1688">
    </LINKPOINT>
    </LINK>
-   <NODE componentmode="Hidden" filename="..\..\VVVV.Nodes.EmguCV\Build\plugins\VVVV.Nodes.EmguCV.dll" id="47" nodename="AsTexture (EmguCV)" systemname="AsTexture (EmguCV)" hiddenwhenlocked="1">
+   <NODE componentmode="Hidden" filename="..\..\VVVV.Nodes.EmguCV\Build\plugins\VVVV.Nodes.EmguCV.dll" hiddenwhenlocked="1" id="47" nodename="AsTexture (EmguCV)" systemname="AsTexture (EmguCV)">
    <BOUNDS height="100" left="615" top="3240" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
@@ -336,7 +336,7 @@
    <PIN pinname="Image" visible="1">
    </PIN>
    </NODE>
-   <NODE componentmode="Hidden" filename="..\Build\modules\ViewWorld (OpenNI DX9).v4p" id="48" nodename="ViewWorld (OpenNI DX9)" systemname="ViewWorld (OpenNI DX9)" hiddenwhenlocked="1">
+   <NODE componentmode="Hidden" filename="..\Build\modules\ViewWorld (OpenNI DX9).v4p" hiddenwhenlocked="1" id="48" nodename="ViewWorld (OpenNI DX9)" systemname="ViewWorld (OpenNI DX9)">
    <BOUNDS height="270" left="630" top="3690" type="Node" width="3045">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
@@ -346,17 +346,17 @@
    <PIN pinname="World" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="25" dstpinname="Layer 2" srcnodeid="48" srcpinname="Layer" hiddenwhenlocked="1">
+   <LINK dstnodeid="25" dstpinname="Layer 2" hiddenwhenlocked="1" srcnodeid="48" srcpinname="Layer">
    </LINK>
-   <LINK dstnodeid="48" dstpinname="RGB" srcnodeid="47" srcpinname="Texture Out" hiddenwhenlocked="1">
+   <LINK dstnodeid="48" dstpinname="RGB" hiddenwhenlocked="1" srcnodeid="47" srcpinname="Texture Out">
    </LINK>
-   <LINK dstnodeid="47" dstpinname="Image" linkstyle="Bezier" srcnodeid="7" srcpinname="Image" hiddenwhenlocked="1">
+   <LINK dstnodeid="47" dstpinname="Image" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="7" srcpinname="Image">
    <LINKPOINT x="1890" y="3005">
    </LINKPOINT>
    <LINKPOINT x="660" y="2605">
    </LINKPOINT>
    </LINK>
-   <NODE componentmode="Hidden" filename="..\..\VVVV.Nodes.EmguCV\Build\plugins\VVVV.Nodes.EmguCV.dll" id="49" nodename="AsTexture (EmguCV)" systemname="AsTexture (EmguCV)" hiddenwhenlocked="1">
+   <NODE componentmode="Hidden" filename="..\..\VVVV.Nodes.EmguCV\Build\plugins\VVVV.Nodes.EmguCV.dll" hiddenwhenlocked="1" id="49" nodename="AsTexture (EmguCV)" systemname="AsTexture (EmguCV)">
    <BOUNDS height="100" left="3615" top="3240" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Texture Out" visible="1">
@@ -364,20 +364,20 @@
    <PIN pinname="Image" visible="1">
    </PIN>
    </NODE>
-   <LINK dstnodeid="48" dstpinname="World" srcnodeid="49" srcpinname="Texture Out" hiddenwhenlocked="1">
+   <LINK dstnodeid="48" dstpinname="World" hiddenwhenlocked="1" srcnodeid="49" srcpinname="Texture Out">
    </LINK>
-   <LINK dstnodeid="49" dstpinname="Image" linkstyle="Bezier" srcnodeid="7" srcpinname="World" hiddenwhenlocked="1">
+   <LINK dstnodeid="49" dstpinname="Image" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="7" srcpinname="World">
    <LINKPOINT x="2385" y="3005">
    </LINKPOINT>
    <LINKPOINT x="3615" y="2605">
    </LINKPOINT>
    </LINK>
-   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="50" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Node" left="7650" top="3045" width="0" height="0">
+   <NODE componentmode="InABox" id="50" nodename="IOBox (Value Advanced)" systemname="IOBox (Value Advanced)">
+   <BOUNDS height="0" left="7650" top="3045" type="Node" width="0">
    </BOUNDS>
-   <BOUNDS type="Box" left="7650" top="3045" width="1125" height="1980">
+   <BOUNDS height="1980" left="7650" top="3045" type="Box" width="1125">
    </BOUNDS>
-   <PIN pinname="Units" slicecount="1" values="||" encoded="0">
+   <PIN encoded="0" pinname="Units" slicecount="1" values="||">
    </PIN>
    <PIN pinname="Precision" slicecount="1" values="4">
    </PIN>
@@ -387,17 +387,17 @@
    </PIN>
    <PIN pinname="Y Input Value">
    </PIN>
-   <PIN pinname="Descriptive Name" slicecount="1" values="PositionXYZ" encoded="0">
+   <PIN encoded="0" pinname="Descriptive Name" slicecount="1" values="PositionXYZ">
    </PIN>
    <PIN pinname="Columns" slicecount="1" values="3">
    </PIN>
    <PIN pinname="Show Grid" slicecount="1" values="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="45" srcpinname="PositionXYZ" dstnodeid="50" dstpinname="Y Input Value">
+   <LINK dstnodeid="50" dstpinname="Y Input Value" srcnodeid="45" srcpinname="PositionXYZ">
    </LINK>
-   <NODE systemname="HSL (Color Join)" nodename="HSL (Color Join)" componentmode="Hidden" id="53">
-   <BOUNDS type="Node" left="4110" top="5235" width="100" height="100">
+   <NODE componentmode="Hidden" id="53" nodename="HSL (Color Join)" systemname="HSL (Color Join)">
+   <BOUNDS height="100" left="4110" top="5235" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Hue" visible="1">
    </PIN>
@@ -410,8 +410,8 @@
    <PIN pinname="Alpha" slicecount="1" values="0.5">
    </PIN>
    </NODE>
-   <NODE systemname="Multiply (Value)" nodename="Multiply (Value)" componentmode="Hidden" id="55">
-   <BOUNDS type="Node" left="4095" top="4830" width="100" height="100">
+   <NODE componentmode="Hidden" id="55" nodename="Multiply (Value)" systemname="Multiply (Value)">
+   <BOUNDS height="100" left="4095" top="4830" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Output" visible="1">
    </PIN>
@@ -420,30 +420,30 @@
    <PIN pinname="Input 1" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="55" srcpinname="Output" dstnodeid="53" dstpinname="Hue">
+   <LINK dstnodeid="53" dstpinname="Hue" srcnodeid="55" srcpinname="Output">
    </LINK>
-   <LINK srcnodeid="45" srcpinname="ID" dstnodeid="55" dstpinname="Input 1" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINK dstnodeid="55" dstpinname="Input 1" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="45" srcpinname="ID">
    <LINKPOINT x="5370" y="3690">
    </LINKPOINT>
    <LINKPOINT x="4140" y="3690">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Translate (Transform Vector)" nodename="Translate (Transform Vector)" componentmode="Hidden" id="56">
-   <BOUNDS type="Node" left="2655" top="4830" width="100" height="100">
+   <NODE componentmode="Hidden" id="56" nodename="Translate (Transform Vector)" systemname="Translate (Transform Vector)">
+   <BOUNDS height="100" left="2655" top="4830" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
    <PIN pinname="XYZ" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="45" srcpinname="PositionXYZ" dstnodeid="56" dstpinname="XYZ" linkstyle="Bezier" hiddenwhenlocked="1">
+   <LINK dstnodeid="56" dstpinname="XYZ" hiddenwhenlocked="1" linkstyle="Bezier" srcnodeid="45" srcpinname="PositionXYZ">
    <LINKPOINT x="7635" y="3675">
    </LINKPOINT>
    <LINKPOINT x="3450" y="3675">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Sphere (DX9)" nodename="Sphere (DX9)" componentmode="Hidden" id="51" filename="">
-   <BOUNDS type="Node" left="2505" top="5775" width="100" height="100">
+   <NODE componentmode="Hidden" filename="" id="51" nodename="Sphere (DX9)" systemname="Sphere (DX9)">
+   <BOUNDS height="100" left="2505" top="5775" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Layer" visible="1">
    </PIN>
@@ -456,14 +456,14 @@
    <PIN pinname="Transform" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="51" srcpinname="Layer" dstnodeid="25" dstpinname="Layer 3" linkstyle="VHV">
+   <LINK dstnodeid="25" dstpinname="Layer 3" linkstyle="VHV" srcnodeid="51" srcpinname="Layer">
    <LINKPOINT x="2505" y="6090">
    </LINKPOINT>
    <LINKPOINT x="945" y="6090">
    </LINKPOINT>
    </LINK>
-   <NODE systemname="Scale (Transform)" nodename="Scale (Transform)" componentmode="Hidden" id="54">
-   <BOUNDS type="Node" left="2655" top="5250" width="100" height="100">
+   <NODE componentmode="Hidden" id="54" nodename="Scale (Transform)" systemname="Scale (Transform)">
+   <BOUNDS height="100" left="2655" top="5250" type="Node" width="100">
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
@@ -478,10 +478,10 @@
    <PIN pinname="X" slicecount="1" values="0.3">
    </PIN>
    </NODE>
-   <LINK srcnodeid="56" srcpinname="Transform Out" dstnodeid="54" dstpinname="Transform In">
+   <LINK dstnodeid="54" dstpinname="Transform In" srcnodeid="56" srcpinname="Transform Out">
    </LINK>
-   <LINK srcnodeid="54" srcpinname="Transform Out" dstnodeid="51" dstpinname="Transform">
+   <LINK dstnodeid="51" dstpinname="Transform" srcnodeid="54" srcpinname="Transform Out">
    </LINK>
-   <LINK srcnodeid="53" srcpinname="Output" dstnodeid="51" dstpinname="Color">
+   <LINK dstnodeid="51" dstpinname="Color" srcnodeid="53" srcpinname="Output">
    </LINK>
    </PATCH>

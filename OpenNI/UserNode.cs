@@ -168,7 +168,7 @@ namespace VVVV.Nodes.OpenNI
 					foreach (var u in FUserData)
 					{
 						Point3D p = FUserGenerator.GetCoM(u.Key);
-						FUserData[u.Key].Position = new Vector3D(p.X / 1000.0d, p.Y / 1000.0d, p.Z / 10000.0d);
+						FUserData[u.Key].Position = new Vector3D(p.X / 1000.0d, p.Y / 1000.0d, p.Z / 1000.0d);
 					}
 				}
 			}

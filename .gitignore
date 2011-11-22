@@ -26,6 +26,7 @@
 ipch/
 obj/
 [Bb]in
+[Bb]uild
 [Dd]ebug*/
 [Rr]elease*/
 Ankh.NoLoad
@@ -35,8 +36,6 @@ _ReSharper*/
 *.resharper
 [Tt]est[Rr]esult*
 
-#Project files
-[Bb]uild/
 
 #Subversion files
 .svn
@@ -48,7 +47,7 @@ _ReSharper*/
 *~.xml
 
 #dll's
-cvextern.dll
+*.dll
 
 #media files
 *.avi
